@@ -26,3 +26,4 @@ steps:
     provider: 'azurerm'
     command: 'plan'
     workingDirectory: '$(System.DefaultWorkingDirectory)/environments/dev'
+    environmentServiceNameAzureRM: 'sc'
