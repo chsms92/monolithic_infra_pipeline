@@ -27,3 +27,11 @@ steps:
     command: 'plan'
     workingDirectory: '$(System.DefaultWorkingDirectory)/environments/dev'
     environmentServiceNameAzureRM: 'sc'
+- task: TerraformTask@5
+  displayName: terraform apply
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/environments/dev'
+    commandOptions: '--auto-approve'
+    environmentServiceNameAzureRM: 'sc'
