@@ -1,0 +1,12 @@
+trigger: none
+pool: agentpool
+steps:
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/environments/dev'
+    backendServiceArm: 'sc'
+    backendAzureRmStorageAccountName: 'bhushan123'
+    backendAzureRmContainerName: 'tfstate'
+    backendAzureRmKey: 'dev-terraform.tfstate'
