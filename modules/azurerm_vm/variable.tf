@@ -6,11 +6,12 @@ variable "vms" {
     vm_size        = string
     admin_username = string
     admin_password = string
+    script_name    = string
     nic_name       = string
     subnet_name    = string
     vnet_name      = string
     pip_name       = string
-    script_name    = string
+
     os_disk = object({
       caching              = string
       storage_account_type = string

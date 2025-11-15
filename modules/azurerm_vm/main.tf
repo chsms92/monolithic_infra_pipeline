@@ -15,14 +15,15 @@ resource "azurerm_network_interface" "nic" {
 }
 
 resource "azurerm_linux_virtual_machine" "vm" {
-  for_each                        = var.vms
-  name                            = each.value.vm_name
-  resource_group_name             = each.value.rg_name
-  location                        = each.value.location
-  size                            = each.value.vm_size
-  admin_username                  = each.value.admin_username
-  admin_password                  = each.value.admin_password
-  custom_data                     = base64decode(file(each.value_script_name))
+  for_each            = var.vms
+  name                = each.value.vm_name
+  resource_group_name = each.value.rg_name
+  location            = each.value.location
+  size                = each.value.vm_size
+  admin_username      = each.value.admin_username
+  admin_password      = each.value.admin_password
+  custom_data         = base64encode(file(each.value.script_name))
+
   disable_password_authentication = false
   network_interface_ids = [
     azurerm_network_interface.nic[each.key].id,

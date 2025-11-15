@@ -139,6 +139,7 @@ vms = {
     vm_size        = "Standard_B1s"
     admin_username = "adminuser"
     admin_password = "P@ssword1234"
+    script_name    = "nginx.sh"
     nic_name       = "backend-nic-dev-001"
     subnet_name    = "backend-subnet"
     vnet_name      = "chandra-vnet-dev-001"
