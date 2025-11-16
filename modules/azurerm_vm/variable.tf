@@ -11,6 +11,8 @@ variable "vms" {
     subnet_name    = string
     vnet_name      = string
     pip_name       = string
+    
+   
 
     os_disk = object({
       caching              = string

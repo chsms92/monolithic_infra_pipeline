@@ -20,8 +20,8 @@ resource "azurerm_linux_virtual_machine" "vm" {
   resource_group_name = each.value.rg_name
   location            = each.value.location
   size                = each.value.vm_size
-  admin_username      = each.value.admin_username
-  admin_password      = each.value.admin_password
+  admin_username = each.value.admin_username
+  admin_password = each.value.admin_password
   custom_data         = base64encode(file(each.value.script_name))
 
   disable_password_authentication = false

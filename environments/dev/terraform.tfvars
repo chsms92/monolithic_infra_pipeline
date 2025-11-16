@@ -162,7 +162,7 @@ nsgs = {
     nsg_name = "dev-frontend-nsg"
     location = "westus"
     rg_name  = "chandra-rg-dev-001"
-    security_rule = {
+    security_rules = {
       sr1 = {
         rule_name                  = "rule1"
         priority                   = 100
@@ -182,7 +182,7 @@ nsgs = {
     nsg_name = "dev-backend-nsg"
     location = "westus"
     rg_name  = "chandra-rg-dev-001"
-    security_rule = {
+    security_rules = {
       sr2 = {
         rule_name                  = "rule2"
         priority                   = 100
@@ -238,3 +238,5 @@ kvs = {
     }
   }
 }
+
+

@@ -38,11 +38,11 @@ vnets = {
     dns_servers   = ["10.0.0.4", "10.0.0.5"]
     subnets = {
       subnet1 = {
-        subnet_name      = "frontend-subnet"
+        subnet_name      = "prod-frontend-subnet"
         address_prefixes = ["10.0.1.0/24"]
       }
       subnet2 = {
-        subnet_name      = "backend-subnet"
+        subnet_name      = "prod-backend-subnet"
         address_prefixes = ["10.0.2.0/24"]
       }
     }
@@ -54,7 +54,7 @@ vnets = {
 }
 pips = {
   pip1 = {
-    pip_name                = "frontend-pip"
+    pip_name                = "prod-frontend-pip"
     location                = "westus"
     rg_name                 = "chandra-rg-prod-001"
     allocation_method       = "Static"
@@ -64,7 +64,7 @@ pips = {
     }
   }
   pip2 = {
-    pip_name                = "backend-pip"
+    pip_name                = "prod-backend-pip"
     location                = "westus"
     rg_name                 = "chandra-rg-prod-001"
     allocation_method       = "Static"
@@ -118,9 +118,9 @@ vms = {
     admin_password = "P@ssword1234"
     script_name    = "nginx.sh"
     nic_name       = "frontend-nic-prod-001"
-    subnet_name    = "frontend-subnet"
+    subnet_name    = "prod-frontend-subnet"
     vnet_name      = "chandra-vnet-prod-001"
-    pip_name       = "frontend-pip"
+    pip_name       = "prod-frontend-pip"
     os_disk = {
       caching              = "ReadWrite"
       storage_account_type = "Standard_LRS"
@@ -141,9 +141,9 @@ vms = {
     admin_password = "P@ssword1234"
     script_name    = "nginx.sh"
     nic_name       = "backend-nic-prod-001"
-    subnet_name    = "backend-subnet"
+    subnet_name    = "prod-backend-subnet"
     vnet_name      = "chandra-vnet-prod-001"
-    pip_name       = "backend-pip"
+    pip_name       = "prod-backend-pip"
     os_disk = {
       caching              = "ReadWrite"
       storage_account_type = "Standard_LRS"
@@ -159,10 +159,10 @@ vms = {
 
 nsgs = {
   nsg1 = {
-    nsg_name = "frontend-nsg"
+    nsg_name = "prod-frontend-nsg"
     location = "westus"
     rg_name  = "chandra-rg-prod-001"
-    security_rule = {
+    security_rules = {
       sr1 = {
         rule_name                  = "rule1"
         priority                   = 100
@@ -179,10 +179,10 @@ nsgs = {
 
   }
   nsg2 = {
-    nsg_name = "backend-nsg"
+    nsg_name = "prod-backend-nsg"
     location = "westus"
     rg_name  = "chandra-rg-prod-001"
-    security_rule = {
+    security_rules = {
       sr2 = {
         rule_name                  = "rule2"
         priority                   = 100
@@ -202,19 +202,19 @@ nsgs = {
 vm_nsg_associations = {
   frontend_assoication = {
     nic_name = "frontend-nic-prod-001"
-    nsg_name = "frontend-nsg"
+    nsg_name = "prod-frontend-nsg"
     rg_name  = "chandra-rg-prod-001"
   }
   backend_assoication = {
     nic_name = "backend-nic-prod-001"
-    nsg_name = "backend-nsg"
+    nsg_name = "prod-backend-nsg"
     rg_name  = "chandra-rg-prod-001"
   }
 }
 
 kvs = {
   kv1 = {
-    kv_name                     = "pradhanjikavault"
+    kv_name                     = "pradhanjikavault-prod"
     location                    = "westus"
     rg_name                     = "chandra-rg-prod-001"
     enabled_for_disk_encryption = true
@@ -238,3 +238,5 @@ kvs = {
     }
   }
 }
+
+

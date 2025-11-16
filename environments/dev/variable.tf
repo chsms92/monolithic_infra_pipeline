@@ -51,4 +51,5 @@ variable "vms" {}
 variable "nsgs" {}
 variable "vm_nsg_associations" {}
 variable "kvs" {}
+
   

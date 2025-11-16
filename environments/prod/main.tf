@@ -50,3 +50,5 @@ module "kvs" {
   source = "../../modules/azurerm_keyvault"
   kvs = var.kvs
 }
+
+
