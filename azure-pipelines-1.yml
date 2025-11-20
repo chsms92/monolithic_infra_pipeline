@@ -56,7 +56,7 @@ jobs:
     inputs:
       provider: 'azurerm'
       command: 'apply'
-      workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev'''
+      workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev'
       environmentServiceNameAzureRM: 'sc'
 
   
