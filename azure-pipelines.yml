@@ -1,4 +1,6 @@
-trigger: none
+trigger:
+- main
+- feature/*
 pool: agentpool
 steps:
 - task: TerraformInstaller@1
@@ -28,6 +30,7 @@ steps:
     workingDirectory: '$(System.DefaultWorkingDirectory)/environments/dev'
     environmentServiceNameAzureRM: 'sc'
 - task: TerraformTask@5
+  condition: eq(variables['Build.SourceBranch'], 'refs/heads/main')
   displayName: terraform apply
   inputs:
     provider: 'azurerm'
