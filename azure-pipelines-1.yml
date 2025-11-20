@@ -38,7 +38,7 @@ jobs:
 - job: Terraformapply
   displayName: tisara job
   dependsOn: Terraformmanual
-  pool: agantpool
+  pool: agentpool
   steps:
   - task: TerraformTask@5
     inputs:
