@@ -12,7 +12,7 @@ jobs:
     inputs:
       provider: 'azurerm'
       command: 'init'
-      workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev'
+      workingDirectory: '$(System.DefaultWorkingDirectory)/environments/dev'
       backendServiceArm: 'sc'
       backendAzureRmStorageAccountName: 'bhushan123'
       backendAzureRmContainerName: 'tfstate'
@@ -21,12 +21,12 @@ jobs:
     inputs:
       provider: 'azurerm'
       command: 'validate'
-      workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev'
+      workingDirectory: '$(System.DefaultWorkingDirectory)/environments/dev'
   - task: TerraformTask@5
     inputs:
       provider: 'azurerm'
       command: 'plan'
-      workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev'
+      workingDirectory: '$(System.DefaultWorkingDirectory)/environments/dev'
       environmentServiceNameAzureRM: 'sc'
 - job: Terraformmanual
   displayName: dusara job
@@ -47,7 +47,7 @@ jobs:
     inputs:
       provider: 'azurerm'
       command: 'init'
-      workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev'
+      workingDirectory: '$(System.DefaultWorkingDirectory)/environments/dev'
       backendServiceArm: 'sc'
       backendAzureRmStorageAccountName: 'bhushan123'
       backendAzureRmContainerName: 'tfstate'
