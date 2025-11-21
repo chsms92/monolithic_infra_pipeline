@@ -5,9 +5,7 @@ jobs:
   displayName: pahla job
   pool: agentpool
   steps:
-  - task: TerraformInstaller@1
-    inputs:
-      terraformVersion: 'latest'
+
   - task: TerraformTask@5
     inputs:
       provider: 'azurerm'
@@ -46,9 +44,7 @@ jobs:
   dependsOn: Terraformmanual
   pool: agentpool
   steps:
-  - task: TerraformInstaller@1
-    inputs:
-      terraformVersion: 'latest'
+
   - task: TerraformTask@5
     inputs:
       provider: 'azurerm'
