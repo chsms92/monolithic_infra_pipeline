@@ -5,17 +5,16 @@ jobs:
   displayName: pahla job
   pool: agentpool
   steps:
-
   - task: TerraformTask@5
     inputs:
-      provider: 'azurerm'
-      command: 'init'
-      workingDirectory: '$(System.DefaultWorkingDirectory)/environments/dev'
-      backendServiceArm: 'sc'
-      backendAzureRmResourceGroupName: 'chandra-rg'
-      backendAzureRmStorageAccountName: 'bhushan123'
-      backendAzureRmContainerName: 'tfstate'
-      backendAzureRmKey: 'dev-terraform.tfstate'
+     provider: 'azurerm'
+     command: 'init'
+     workingDirectory: '$(System.DefaultWorkingDirectory)/environments/dev'
+     backendServiceArm: 'sc'
+     backendAzureRmResourceGroupName: 'chandra-rg'
+     backendAzureRmStorageAccountName: 'bhushan123'
+     backendAzureRmContainerName: 'tfstate'
+     backendAzureRmKey: 'dev-terraform.tfstate'
 #   - task: TerraformTask@5
 #     inputs:
 #       provider: 'azurerm'
