@@ -1,40 +1,17 @@
-trigger:
-- main
-- feature/*
-pool: agentpool
-steps:
-- task: TerraformInstaller@1
-  inputs:
-    terraformVersion: 'latest'
-- task: TerraformTask@5
-  displayName: terraform init
-  inputs:
-    provider: 'azurerm'
-    command: 'init'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/environments/dev'
-    backendServiceArm: 'sc'
-    backendAzureRmStorageAccountName: 'bhushan123'
-    backendAzureRmContainerName: 'tfstate'
-    backendAzureRmKey: 'dev-terraform.tfstate'
-- task: TerraformTask@5
-  displayName: terraform validate
-  inputs:
-    provider: 'azurerm'
-    command: 'validate'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/environments/dev'
-- task: TerraformTask@5
-  displayName: terraform plan
-  inputs:
-    provider: 'azurerm'
-    command: 'plan'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/environments/dev'
-    environmentServiceNameAzureRM: 'sc'
-- task: TerraformTask@5
-  condition: eq(variables['Build.SourceBranch'], 'refs/heads/main')
-  displayName: terraform apply
-  inputs:
-    provider: 'azurerm'
-    command: 'apply'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/environments/dev'
-    commandOptions: '--auto-approve'
-    environmentServiceNameAzureRM: 'sc'
+trigger: none
+jobs:
+- job: firstjob # Required as first property. ID of the job.
+  displayName: Terraform init # Human-readable name for the job.
+  pool: agentpool
+  steps: 
+  - task: TerraformTask@5
+    displayName: initwa
+    inputs:
+      provider: 'azurerm'
+      command: 'init'
+      workingDirectory: '$(System.DefaultWorkingDirectory)/environments/dev'
+      backendServiceArm: 'sc'
+      backendAzureRmResourceGroupName: 'chandra-rg'
+      backendAzureRmStorageAccountName: 'bhushan123'
+      backendAzureRmContainerName: 'tfstate'
+      backendAzureRmKey: 'dev-terraform.tfstate'
