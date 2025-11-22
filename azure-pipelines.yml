@@ -29,3 +29,15 @@ jobs:
       command: 'plan'
       workingDirectory: '$(System.DefaultWorkingDirectory)/environments/dev'
       environmentServiceNameAzureRM: 'sc'
+- job: secondjob
+  displayName: manualapproval
+  pool: server
+  steps:
+  - task: ManualValidation@1
+    inputs:
+      notifyUsers: 'chandrapratap.smsit@gmail.com'
+# - job: thirdjob
+#   displayName: terraformapply
+#   pool: agentpool
+#   steps:
+
