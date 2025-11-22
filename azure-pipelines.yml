@@ -4,6 +4,9 @@ jobs:
   displayName: Terraform init # Human-readable name for the job.
   pool: agentpool
   steps: 
+  - task: TerraformInstaller@1
+    inputs:
+      terraformVersion: 'latest'
   - task: TerraformTask@5
     displayName: initwa
     inputs:
