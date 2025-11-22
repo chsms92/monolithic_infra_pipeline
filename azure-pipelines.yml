@@ -22,7 +22,7 @@ jobs:
     inputs:
       provider: 'azurerm'
       command: 'validate'
-      workingDirectory: '$(System.DefaultWorkingDirectory)/enviornments/dev'
+      workingDirectory: '$(System.DefaultWorkingDirectory)/environments/dev'
   - task: TerraformTask@5
     inputs:
       provider: 'azurerm'
