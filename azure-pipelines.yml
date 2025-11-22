@@ -18,3 +18,14 @@ jobs:
       backendAzureRmStorageAccountName: 'bhushan123'
       backendAzureRmContainerName: 'tfstate'
       backendAzureRmKey: 'dev-terraform.tfstate'
+  - task: TerraformTask@5
+    inputs:
+      provider: 'azurerm'
+      command: 'validate'
+      workingDirectory: '$(System.DefaultWorkingDirectory)/enviornments/dev'
+  - task: TerraformTask@5
+    inputs:
+      provider: 'azurerm'
+      command: 'plan'
+      workingDirectory: '$(System.DefaultWorkingDirectory)/environments/dev'
+      environmentServiceNameAzureRM: 'sc'
