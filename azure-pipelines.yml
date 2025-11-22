@@ -31,6 +31,7 @@ jobs:
       environmentServiceNameAzureRM: 'sc'
 - job: secondjob
   displayName: manualapproval
+  dependsOn: firstjob
   pool: server
   steps:
   - task: ManualValidation@1
