@@ -37,8 +37,26 @@ jobs:
   - task: ManualValidation@1
     inputs:
       notifyUsers: 'chandrapratap.smsit@gmail.com'
-# - job: thirdjob
-#   displayName: terraformapply
-#   pool: agentpool
-#   steps:
-
+- job: thirdjob
+  displayName: terraformapply
+  pool: agentpool
+  dependsOn: secondjob
+  steps:
+  - task: TerraformInstaller@1
+    inputs:
+      terraformVersion: 'latest'
+  - task: TerraformTask@5
+    inputs:
+      provider: 'azurerm'
+      command: 'init'
+      workingDirectory: '$(System.DefaultWorkingDirectory)/environments/dev'
+      backendServiceArm: 'sc'
+      backendAzureRmStorageAccountName: 'bhushan123'
+      backendAzureRmContainerName: 'tfstate'
+      backendAzureRmKey: 'dev-terraform.tfstate'
+  - task: TerraformTask@5
+    inputs:
+      provider: 'azurerm'
+      command: 'apply'
+      workingDirectory: '$(System.DefaultWorkingDirectory)/environments/dev'
+      environmentServiceNameAzureRM: 'sc'
