@@ -19,3 +19,25 @@ jobs:
         run: |
           az account show
           az group list
+  terraform_init_plan:
+    name: Terraform Init and Plan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Terraform Setup
+        uses: hashicorp/setup-terraform@v4
+
+      - name: Checkout Repository
+        uses: actions/checkout@v6.0.3
+
+      - name: terraform init
+        run: terraform init
+        
+      - name: terraform validate
+        run: terraform validate
+
+      - name: terraform plan
+        run: terraform plan
+
+      - name: Terraform Apply
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: terraform apply -auto-approve
